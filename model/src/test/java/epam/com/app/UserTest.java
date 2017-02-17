@@ -1,9 +1,7 @@
-package epam.com.app.model;
+package epam.com.app;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by dimgo on 13.2.17.
