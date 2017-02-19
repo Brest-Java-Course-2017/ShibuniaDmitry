@@ -1,5 +1,7 @@
 package epam.com.app;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -28,6 +30,7 @@ public class UserDaoImpl implements UserDao {
     String updateUserSql = "update app_user set  login=:login, password=:password, description=:description where user_id=:id";
     String deleteUserSql = "delete from app_user where user_id=:id";
 
+    private static final Logger LOGGER = LogManager.getLogger();
     public UserDaoImpl(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
         namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -35,12 +38,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-
+        LOGGER.debug("get all users");
         return jdbcTemplate.query(getAllUsersSql, new UserRowMapper());
     }
 
     @Override
     public User getUserById(Integer userId) {
+        LOGGER.debug("get user by id");
         SqlParameterSource namedParameters = new MapSqlParameterSource("p_user_id", userId);
         User user = namedParameterJdbcTemplate.queryForObject(
                 getUserByIdSql, namedParameters, new UserRowMapper());
@@ -49,6 +53,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Integer addUser(User user) {
+        LOGGER.debug("add user");
         KeyHolder keyHolder=new GeneratedKeyHolder();
         MapSqlParameterSource parameterSource=new MapSqlParameterSource();
         parameterSource.addValue("login",user.getLogin());
@@ -61,6 +66,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(User user) {
+        LOGGER.debug("update user");
         MapSqlParameterSource parameterSource=new MapSqlParameterSource();
         parameterSource.addValue("id", user.getUserId());
         parameterSource.addValue("login",user.getLogin());
@@ -71,6 +77,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(Integer userId) {
+        LOGGER.debug("delete user");
         SqlParameterSource namedParameters=new MapSqlParameterSource("id",userId);
         namedParameterJdbcTemplate.update(deleteUserSql,namedParameters);
 
