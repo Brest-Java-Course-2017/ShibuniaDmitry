@@ -2,6 +2,7 @@ package epam.com.app;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -24,11 +25,26 @@ public class UserDaoImpl implements UserDao {
     private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    String getAllUsersSql = "select user_id, login, password, description from app_user";
-    String getUserByIdSql = "select user_id, login, password, description from app_user where user_id = :p_user_id";
-    String addUserSql = "insert into app_user (login, password, description) values (:login, :password, :description)";
-    String updateUserSql = "update app_user set  login=:login, password=:password, description=:description where user_id=:id";
-    String deleteUserSql = "delete from app_user where user_id=:id";
+    //String getAllUsersSql = "select user_id, login, password, description from app_user";
+    //String getUserByIdSql = "select user_id, login, password, description from app_user where user_id = :p_user_id";
+    //String addUserSql = "insert into app_user (login, password, description) values (:login, :password, :description)";
+    //String updateUserSql = "update app_user set  login=:login, password=:password, description=:description where user_id=:id";
+    //String deleteUserSql = "delete from app_user where user_id=:id";
+
+    @Value("${sql.getAllUsers}")
+    String getAllUsersSql;
+
+    @Value("${sql.getUserById}")
+    String getUserByIdSql;
+
+    @Value("${sql.addUser}")
+    String addUserSql;
+
+    @Value("${sql.updateUser}")
+    String updateUserSql;
+
+    @Value("${sql.deleteUser}")
+    String deleteUserSql;
 
     private static final Logger LOGGER = LogManager.getLogger();
     public UserDaoImpl(DataSource dataSource) {
