@@ -16,6 +16,8 @@
     <module>daoapi</module>
     <module>dao</module>
     <module>test-db</module>
+    <module>service-api</module>
+    <module>service</module>
   </modules>
 
   <properties>
@@ -49,6 +51,18 @@
       <dependency>
         <groupId>com.epam.app</groupId>
         <artifactId>test-db</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.epam.app</groupId>
+        <artifactId>service-api</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.epam.app</groupId>
+        <artifactId>service</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
 
@@ -118,6 +132,13 @@
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-jcl</artifactId>
         <version>${log4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>3.4</version>
+        <scope>test</scope>
       </dependency>
 
     </dependencies>

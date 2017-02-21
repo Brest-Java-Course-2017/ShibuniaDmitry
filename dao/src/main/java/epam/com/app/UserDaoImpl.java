@@ -37,6 +37,9 @@ public class UserDaoImpl implements UserDao {
     @Value("${sql.getUserById}")
     String getUserByIdSql;
 
+    @Value("${sql.getUserByLogin}")
+    String getUserByLoginSql;
+
     @Value("${sql.addUser}")
     String addUserSql;
 
@@ -68,6 +71,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserByLogin(String login) {
+        LOGGER.debug("get user by login");
+        SqlParameterSource namedParameters = new MapSqlParameterSource("p_user_login", login);
+        User user = namedParameterJdbcTemplate.queryForObject(
+                getUserByLoginSql, namedParameters, new UserRowMapper());
+        return user;
+    }
+
+    @Override
     public Integer addUser(User user) {
         LOGGER.debug("add user");
         KeyHolder keyHolder=new GeneratedKeyHolder();
@@ -79,6 +91,7 @@ public class UserDaoImpl implements UserDao {
 
         return keyHolder.getKey().intValue();
     }
+
 
     @Override
     public void updateUser(User user) {

@@ -10,6 +10,8 @@ public interface UserDao {
 
     User getUserById(Integer userId);
 
+    User getUserByLogin(String login);
+
     Integer addUser(User user);
 
     void updateUser(User user);

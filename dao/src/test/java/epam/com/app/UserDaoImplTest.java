@@ -35,6 +35,14 @@ public class UserDaoImplTest {
     }
 
     @Test
+    public void getUserByLoginTest() throws Exception {
+
+        User user = userDao.getUserByLogin("userLogin1");
+        assertNotNull(user);
+        assertEquals("userLogin1", user.getLogin());
+    }
+
+    @Test
     public void addUserTest() throws Exception{
         User user = new User();
         user.setLogin("User3");
