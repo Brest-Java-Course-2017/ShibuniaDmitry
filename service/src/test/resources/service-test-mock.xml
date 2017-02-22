@@ -5,10 +5,10 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="userDao" class="org.easymock.EasyMock" factory-method="createMock">
-        <constructor-arg value="com.epam.test.dao.UserDao"/>
+        <constructor-arg value="epam.com.app.UserDao"/>
     </bean>
 
-    <bean id="userService" class="com.epam.test.service.UserServiceImpl">
+    <bean id="userService" class="com.epam.app.service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
 
