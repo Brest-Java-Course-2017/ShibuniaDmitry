@@ -25,6 +25,11 @@ public class User {
         this.description = description;
     }
 
+    public User(String login, String password){
+        this.login = login;
+        this.password = password;
+    }
+
 
     public Integer getUserId() {
 
