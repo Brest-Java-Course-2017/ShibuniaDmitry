@@ -188,6 +188,8 @@
   <build>
     <pluginManagement>
       <plugins>
+
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -197,6 +199,19 @@
             <target>1.7</target>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <version>9.4.0.v20161208</version>
+          <configuration>
+            <scanIntervalSeconds>10</scanIntervalSeconds>
+            <webApp>
+              <contextPath>/</contextPath>
+            </webApp>
+          </configuration>
+        </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
@@ -329,6 +344,8 @@
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
         </configuration>
       </plugin>
+
+
     </plugins>
   </reporting>
 
