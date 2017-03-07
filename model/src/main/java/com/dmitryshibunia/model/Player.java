@@ -9,11 +9,13 @@ import java.util.Objects;
 public class Player {
 
     private Integer id;
+    private Integer teamId;
     private String name;
     private String surname;
     private LocalDate acceptanceDate;
 
-    public Player(String name, String surname, LocalDate acceptanceDate) {
+    public Player(Integer teamId, String name, String surname, LocalDate acceptanceDate) {
+        this.teamId = teamId;
         this.name = name;
         this.surname = surname;
         this.acceptanceDate = acceptanceDate;
@@ -28,27 +30,41 @@ public class Player {
 
     }
 
+    public Integer getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getSurname() {
+
         return surname;
     }
 
     public void setSurname(String surname) {
+
         this.surname = surname;
     }
 
     public LocalDate getAcceptanceDate() {
+
         return acceptanceDate;
     }
 
     public void setAcceptanceDate(LocalDate acceptanceDate) {
+
         this.acceptanceDate = acceptanceDate;
     }
 
