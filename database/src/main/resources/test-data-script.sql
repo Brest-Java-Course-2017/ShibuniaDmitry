@@ -1,0 +1,8 @@
+INSERT INTO team(team_name, players_quantity) values
+    ('Team1', 2),
+    ('Team2', 1);
+
+INSERT INTO player(team_id, player_name, player_surname, acceptance_date) values
+    ( 1, 'Jack', 'Richer', '2010-01-01'),
+    ( 1, 'Will', 'Smith', '2014-02-01'),
+    ( 2, 'Jack', 'Smith', '2015-01-01');

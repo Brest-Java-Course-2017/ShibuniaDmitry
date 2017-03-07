@@ -21,12 +21,24 @@ public class Team {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getPlayersQuantity() {
         return playersQuantity;
+    }
+
+    public void setPlayersQuantity(Integer playersQuantity) {
+        this.playersQuantity = playersQuantity;
     }
 
     @Override
