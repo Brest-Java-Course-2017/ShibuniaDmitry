@@ -48,12 +48,12 @@ public interface TeamDao {
      *
      * @param team team object
      */
-    void udateTeam(Team team);
+    int updateTeam(Team team);
 
     /**
      * delete team
      *
      * @param id team identifier
      */
-    void deleteTeam(Integer id);
+    int deleteTeam(Integer id);
 }

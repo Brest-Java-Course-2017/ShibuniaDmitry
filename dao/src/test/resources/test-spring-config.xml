@@ -9,6 +9,8 @@
         <property name="locations">
             <list>
                 <value>classpath*:database.properties</value>
+                <value>classpath*:player-sql-queries.properties</value>
+                <value>classpath*:team-sql-queries.properties</value>
             </list>
         </property>
     </bean>

@@ -15,6 +15,14 @@ public interface PlayerDao {
      * @return all players list
      */
     List<Player> getAllPlayers();
+    /**
+     * Get all players list
+     *
+     * @param teamId team identifier
+     *
+     * @return all players list
+     */
+    List<Player> getAllPlayersInTeam(Integer teamId);
 
     /**
      * Get player by id
@@ -24,15 +32,6 @@ public interface PlayerDao {
      * @return player object
      */
     Player getPlayerById(Integer id);
-
-    /**
-     * Get player by name
-     *
-     * @param name player's name
-     *
-     * @return player object
-     */
-    Player getPlayerById(String name);
 
     /**
      * add new player
@@ -48,14 +47,14 @@ public interface PlayerDao {
      *
      * @param player player object
      */
-    void udatePlayer(Player player);
+    int updatePlayer(Player player);
 
     /**
      * delete player
      *
      * @param id player identifier
      */
-    void deletePlayer(Integer id);
+    int deletePlayer(Integer id);
 
     /**
      * count players quantity in team
@@ -69,11 +68,12 @@ public interface PlayerDao {
     /**
      * Get list of players filtered by acceptance date
      *
-     * @param from begining of period
+     * @param teamId team identifier
+     * @param from beginning of period
      * @param to end of period
      *
      * @return filtered players list
      */
-    List<Player> filterPlayersByAcceptanceDate(LocalDate from, LocalDate to);
+    List<Player> filterPlayersByAcceptanceDate(Integer teamId, LocalDate from, LocalDate to);
 
 }

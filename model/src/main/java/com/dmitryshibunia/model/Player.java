@@ -14,7 +14,18 @@ public class Player {
     private String surname;
     private LocalDate acceptanceDate;
 
+    public Player() {
+    }
+
     public Player(Integer teamId, String name, String surname, LocalDate acceptanceDate) {
+        this.teamId = teamId;
+        this.name = name;
+        this.surname = surname;
+        this.acceptanceDate = acceptanceDate;
+    }
+
+    public Player(Integer id, Integer teamId, String name, String surname, LocalDate acceptanceDate) {
+        this.id = id;
         this.teamId = teamId;
         this.name = name;
         this.surname = surname;
@@ -72,6 +83,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "id=" + id +
+                ", teamId=" + teamId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", acceptanceDate=" + acceptanceDate +

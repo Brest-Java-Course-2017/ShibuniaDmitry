@@ -11,10 +11,19 @@ public class Team {
     private String name;
     private Integer playersQuantity;
 
+    public Team(Integer id, String name, Integer playersQuantity) {
+        this.id = id;
+        this.name = name;
+        this.playersQuantity = playersQuantity;
+    }
+
     public Team(String name, Integer playersQuantity) {
 
         this.name = name;
         this.playersQuantity = playersQuantity;
+    }
+
+    public Team() {
     }
 
     public Integer getId() {
