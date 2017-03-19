@@ -37,7 +37,6 @@ public class PlayerDaoImplTest {
         Assert.assertTrue(player.equals(TEST_PLAYER));
     }
 
-    @Ignore
     @Test
     public void getAllPlayersInTeam(){
         List<Player> players = playerDao.getAllPlayersInTeam(1);

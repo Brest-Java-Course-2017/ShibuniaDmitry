@@ -14,6 +14,7 @@
         <module>database</module>
         <module>dao</module>
         <module>service-api</module>
+        <module>service</module>
     </modules>
 
 
@@ -57,6 +58,12 @@
             <dependency>
                 <groupId>com.dmitryshibunia</groupId>
                 <artifactId>service-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dmitryshibunia</groupId>
+                <artifactId>service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

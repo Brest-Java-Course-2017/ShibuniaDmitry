@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:player-sql-queries.properties</value>
+                <value>classpath*:team-sql-queries.properties</value>
+                <value>classpath:database.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <import resource="classpath*:spring-db.xml"/>
+
+    <bean id="playerDao" class="com.dmitryshibunia.dao.PlayerDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="playerService" class="com.dmitryshibunia.service.PlayerServiceImpl">
+        <property name="playerDao" ref="playerDao"/>
+    </bean>
+
+    <bean id="teamDao" class="com.dmitryshibunia.dao.TeamDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="teamService" class="com.dmitryshibunia.service.TeamServiceImpl">
+        <property name="teamDao" ref="teamDao"/>
+    </bean>
+
+</beans>

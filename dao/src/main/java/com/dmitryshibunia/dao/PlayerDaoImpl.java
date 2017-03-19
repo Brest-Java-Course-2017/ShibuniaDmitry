@@ -57,7 +57,6 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
 
-    // This method is useless...
     @Override
     public List<Player> getAllPlayersInTeam(Integer teamId) {
         LOGGER.debug("DAO method getAllPlayersInTeam() ");
