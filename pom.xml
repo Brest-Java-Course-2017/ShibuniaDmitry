@@ -13,6 +13,7 @@
         <module>dao-api</module>
         <module>database</module>
         <module>dao</module>
+        <module>service-api</module>
     </modules>
 
 
@@ -50,6 +51,12 @@
             <dependency>
                 <groupId>com.dmitryshibunia</groupId>
                 <artifactId>database</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dmitryshibunia</groupId>
+                <artifactId>service-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -108,6 +115,11 @@
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jcl</artifactId>
                 <version>${log4j2.version}</version>
             </dependency>
 
