@@ -76,9 +76,7 @@ public class TeamDaoImpl implements TeamDao {
         LOGGER.debug("DAO method addTeam() " + team);
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("team_name", team.getName());
-        parameterSource.addValue("players_quantity", team.getPlayersQuantity());
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource("team_name", team.getName());
         namedParameterJdbcTemplate.update(ADD_TEAM_SQL, parameterSource, keyHolder);
 
         return keyHolder.getKey().intValue();
@@ -90,7 +88,6 @@ public class TeamDaoImpl implements TeamDao {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("team_id", team.getId());
         parameterSource.addValue("team_name", team.getName());
-        parameterSource.addValue("players_quantity", team.getPlayersQuantity());
         return namedParameterJdbcTemplate.update(UPDATE_TEAM_SQL, parameterSource);
     }
 
@@ -106,8 +103,7 @@ public class TeamDaoImpl implements TeamDao {
         public Team mapRow(ResultSet resultSet, int i) throws SQLException {
             Team team = new Team(
                     resultSet.getInt("team_id"),
-                    resultSet.getString("team_name"),
-                    resultSet.getInt("players_quantity")
+                    resultSet.getString("team_name")
             );
             return team;
         }

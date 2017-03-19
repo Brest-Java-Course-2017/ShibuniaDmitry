@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 public class TeamDaoImplTest {
 
-    private static final Team TEST_TEAM = new Team(1, "Team1", 2);
+    private static final Team TEST_TEAM = new Team(1, "Team1");
     @Autowired
     TeamDao teamDao;
 
@@ -40,12 +40,11 @@ public class TeamDaoImplTest {
 
     @Test
     public void addTeam() throws Exception {
-        Team team = new Team("Team3", 3);
+        Team team = new Team("Team3");
         int teamsQuantityBefore = teamDao.getAllTeams().size();
 
         Assert.assertNotNull(team);
         Assert.assertNotNull(team.getName());
-        Assert.assertNotNull(team.getPlayersQuantity());
         Assert.assertNull(team.getId());
 
         int newTeamId = teamDao.addTeam(team);
@@ -64,7 +63,7 @@ public class TeamDaoImplTest {
 
     @Test
     public void deleteTeam() throws Exception {
-        Team team = new Team("Team 3", 0);
+        Team team = new Team("Team 3");
         int teamId = teamDao.addTeam(team);
         teamDao.deleteTeam(teamId);
         Assert.assertTrue(teamDao.getAllTeams().size() == 2);

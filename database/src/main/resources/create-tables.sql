@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS team;
 CREATE TABLE team(
   team_id INT NOT NULL AUTO_INCREMENT,
   team_name VARCHAR(50) NOT NULL UNIQUE,
-  players_quantity INT NOT NULL,
   PRIMARY KEY (team_id)
 );
 

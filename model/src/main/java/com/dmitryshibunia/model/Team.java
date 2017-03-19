@@ -9,18 +9,14 @@ public class Team {
 
     private Integer id;
     private String name;
-    private Integer playersQuantity;
 
-    public Team(Integer id, String name, Integer playersQuantity) {
+    public Team(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.playersQuantity = playersQuantity;
     }
 
-    public Team(String name, Integer playersQuantity) {
-
+    public Team(String name) {
         this.name = name;
-        this.playersQuantity = playersQuantity;
     }
 
     public Team() {
@@ -42,13 +38,6 @@ public class Team {
         this.name = name;
     }
 
-    public Integer getPlayersQuantity() {
-        return playersQuantity;
-    }
-
-    public void setPlayersQuantity(Integer playersQuantity) {
-        this.playersQuantity = playersQuantity;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -56,13 +45,12 @@ public class Team {
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
         return Objects.equals(id, team.id) &&
-                Objects.equals(name, team.name) &&
-                Objects.equals(playersQuantity, team.playersQuantity);
+                Objects.equals(name, team.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, playersQuantity);
+        return Objects.hash(id, name);
     }
 
     @Override
@@ -70,7 +58,6 @@ public class Team {
         return "Team{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", playersQuantity=" + playersQuantity +
                 '}';
     }
 }
