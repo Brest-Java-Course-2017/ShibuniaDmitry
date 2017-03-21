@@ -76,4 +76,6 @@ public interface PlayerDao {
      */
     List<Player> filterPlayersByAcceptanceDate(Integer teamId, LocalDate from, LocalDate to);
 
+    int searchPlayer(String name, String surname);
+
 }

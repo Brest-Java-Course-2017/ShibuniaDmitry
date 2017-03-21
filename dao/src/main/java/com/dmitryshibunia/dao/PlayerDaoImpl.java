@@ -45,6 +45,8 @@ public class PlayerDaoImpl implements PlayerDao {
     private String FILTER_PLAYERS_BY_PERIOD_SQL;
     @Value("${getAllPlayersInteam.sql}")
     private String GET_ALL_PLAYERS_IN_TEAM_SQL;
+    @Value("${searchPlayer.sql}")
+    private String SEARCH_PLAYER_SQL;
 
     public PlayerDaoImpl(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
@@ -126,6 +128,14 @@ public class PlayerDaoImpl implements PlayerDao {
         parameterSource.addValue("to", to);
 
         return  namedParameterJdbcTemplate.query(FILTER_PLAYERS_BY_PERIOD_SQL, parameterSource, new PlayerRowMapper());
+    }
+
+    @Override
+    public int searchPlayer(String name, String surname){
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("player_name", name);
+        parameterSource.addValue("player_surname", surname);
+        return namedParameterJdbcTemplate.queryForObject(SEARCH_PLAYER_SQL, parameterSource, Integer.class);
     }
 
     private class PlayerRowMapper implements RowMapper<Player> {

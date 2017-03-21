@@ -64,7 +64,7 @@ public class TeamDaoImpl implements TeamDao {
 
     @Override
     public Team getTeamByName(String name) {
-        LOGGER.debug("DAO method getTeamByName() team name" + name);
+        LOGGER.debug("DAO method getTeamByName() team name = " + name);
         SqlParameterSource namedParameters = new MapSqlParameterSource("p_team_name", name);
         Team team = namedParameterJdbcTemplate.queryForObject(
                 GET_TEAM_BY_NAME_SQL, namedParameters, new TeamRowMapper());

@@ -45,12 +45,12 @@ public interface TeamService {
      *
      * @param team team object
      */
-    int updateTeam(Team team);
+    void updateTeam(Team team);
 
     /**
      * delete team
      *
      * @param id team identifier
      */
-    int deleteTeam(Integer id);
+    void deleteTeam(Integer id);
 }

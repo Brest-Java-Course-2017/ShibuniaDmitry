@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 @Transactional
 public class PlayerDaoImplTest {
 
-    private static Player TEST_PLAYER = new Player(1,1, "Jack", "Richer", LocalDate.parse("2010-01-01"));
+    private final Player TEST_PLAYER = new Player(1,1, "Jack", "Richer", LocalDate.parse("2010-01-01"));
 
     @Autowired
     PlayerDao playerDao;
@@ -92,6 +92,11 @@ public class PlayerDaoImplTest {
     public void filterPlayersByAcceptanceDate() throws Exception {
         List<Player> players = playerDao.filterPlayersByAcceptanceDate(1, LocalDate.parse("2014-02-01"), LocalDate.parse("2015-01-01"));
         Assert.assertTrue(players.size() == 1);
+    }
+
+    @Test
+    public void searchPlayer() throws Exception{
+        Assert.assertTrue(playerDao.searchPlayer("Jack", "Richer") == 1);
     }
 
 }

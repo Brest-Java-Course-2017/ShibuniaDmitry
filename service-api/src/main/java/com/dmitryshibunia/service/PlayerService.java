@@ -39,14 +39,14 @@ public interface PlayerService {
      *
      * @param player player object
      */
-    int updatePlayer(Player player);
+    void updatePlayer(Player player);
 
     /**
      * delete player
      *
      * @param id player identifier
      */
-    int deletePlayer(Integer id);
+    void deletePlayer(Integer id);
 
     /**
      * count players quantity in team

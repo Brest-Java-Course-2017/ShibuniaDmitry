@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 public class TeamDaoImplTest {
 
-    private static final Team TEST_TEAM = new Team(1, "Team1");
+    private final Team TEST_TEAM = new Team(1, "Team1");
     @Autowired
     TeamDao teamDao;
 
