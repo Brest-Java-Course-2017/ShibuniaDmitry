@@ -17,7 +17,47 @@
 
     <mvc:annotation-driven/>
 
-    <import resource="classpath*:service-test.xml"/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:player-sql-queries.properties</value>
+                <value>classpath*:team-sql-queries.properties</value>
+                <value>classpath:database.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="classpath*:create-tables.sql"/>
+        <jdbc:script location="classpath*:test-data-script.sql"/>
+    </jdbc:initialize-database>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="playerDao" class="com.dmitryshibunia.dao.PlayerDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="playerService" class="com.dmitryshibunia.service.PlayerServiceImpl">
+        <property name="playerDao" ref="playerDao"/>
+    </bean>
+
+    <bean id="teamDao" class="com.dmitryshibunia.dao.TeamDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="teamService" class="com.dmitryshibunia.service.TeamServiceImpl">
+        <property name="teamDao" ref="teamDao"/>
+    </bean>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
