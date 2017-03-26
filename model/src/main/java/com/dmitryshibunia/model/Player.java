@@ -74,9 +74,9 @@ public class Player {
         return acceptanceDate;
     }
 
-    public void setAcceptanceDate(LocalDate acceptanceDate) {
+    public void setAcceptanceDate(String acceptanceDate) {
 
-        this.acceptanceDate = acceptanceDate;
+        this.acceptanceDate = LocalDate.parse(acceptanceDate);
     }
 
     @Override
