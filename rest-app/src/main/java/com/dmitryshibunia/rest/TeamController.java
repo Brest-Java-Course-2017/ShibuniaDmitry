@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class TeamController {
 
@@ -17,6 +18,12 @@ public class TeamController {
 
     @Autowired
     private TeamService teamService;
+
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    @ExceptionHandler({IllegalArgumentException.class})
+    public String incorrectDataError() {
+        return "{  \"response\" : \"Incorrect Data Error\" }";
+    }
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
     public @ResponseBody List<Team> getAllTeams() {

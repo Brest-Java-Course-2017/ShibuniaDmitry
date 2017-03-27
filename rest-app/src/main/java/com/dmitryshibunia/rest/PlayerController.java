@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class PlayerController {
 
@@ -19,7 +20,11 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
 
-
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    @ExceptionHandler({IllegalArgumentException.class})
+    public String incorrectDataError() {
+        return "{  \"response\" : \"Incorrect Data Error\" }";
+    }
 
     @RequestMapping(value = "/team/{id}/players", method = RequestMethod.GET)
     public @ResponseBody List<Player> getAllPlayersInTeam(@PathVariable(value = "id") Integer id){
