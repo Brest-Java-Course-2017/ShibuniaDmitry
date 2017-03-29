@@ -1,6 +1,7 @@
 package com.dmitryshibunia.dao;
 
 import com.dmitryshibunia.model.Team;
+import com.dmitryshibunia.model.TeamDO;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface TeamDao {
      *
      * @return all teams list
      */
-    List<Team> getAllTeams();
+    List<TeamDO> getAllTeams();
 
     /**
      * Get team by id

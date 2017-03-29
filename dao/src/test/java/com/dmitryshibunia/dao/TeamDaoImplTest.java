@@ -1,6 +1,7 @@
 package com.dmitryshibunia.dao;
 
 import com.dmitryshibunia.model.Team;
+import com.dmitryshibunia.model.TeamDO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,7 @@ public class TeamDaoImplTest {
 
     @Test
     public void getAllTeams() throws Exception {
-        List<Team> teams = teamDao.getAllTeams();
+        List<TeamDO> teams = teamDao.getAllTeams();
         Assert.assertTrue(teams.size() == 2);
     }
 

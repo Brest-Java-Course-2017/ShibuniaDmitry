@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 public class PlayerControllerMockTest {
 
     @Resource
-    private TeamController teamController;
+    private PlayerController playerController;
 
     @Autowired
     PlayerService playerService;
@@ -43,7 +43,7 @@ public class PlayerControllerMockTest {
 
     @Before
     public void setUp() {
-        mockMvc = standaloneSetup(teamController)
+        mockMvc = standaloneSetup(playerController)
                 .setMessageConverters(new MappingJackson2HttpMessageConverter())
                 .build();
     }
@@ -54,7 +54,7 @@ public class PlayerControllerMockTest {
         reset(playerService);
     }
 
-    @Ignore
+
     @Test
     public void getAllTeams() throws Exception {
         expect(playerService.getAllPlayersInTeam(1)).andReturn(Arrays.<Player>asList(

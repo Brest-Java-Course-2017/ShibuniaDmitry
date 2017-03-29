@@ -97,7 +97,7 @@ public class TeamControllerMockTest {
                 .andExpect(status().isAccepted());
     }
 
-    @Ignore
+
     @Test
     public void deleteTeam() throws Exception{
         teamService.deleteTeam(1);
@@ -105,7 +105,7 @@ public class TeamControllerMockTest {
         replay(teamService);
 
         mockMvc.perform(
-                delete("/book/" + 1))
+                delete("/team/" + 1))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

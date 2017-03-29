@@ -1,6 +1,7 @@
 package com.dmitryshibunia.service;
 
 import com.dmitryshibunia.model.Team;
+import com.dmitryshibunia.model.TeamDO;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface TeamService {
      *
      * @return all teams list
      */
-    List<Team> getAllTeams();
+    List<TeamDO> getAllTeams();
 
     /**
      * Get team by id

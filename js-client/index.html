@@ -10,11 +10,13 @@
 
 <h1>All teams</h1>
 
+<button id="btnNew">Add new team</button>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
+            <th >Name</th>
             <th>Players Quantity</th>
             <th>Action</th>
         </tr>
@@ -31,11 +33,25 @@
 
 <hr />
 
+<form id="teamForm">
+    <div class="mainArea">
+
+        <label>Id:</label>
+        <input type="text" id="id" name="id" disabled>
+        <label>Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <button id="btnSave">Save</button>
+
+    </div>
+</form>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
+
 <script src="js/main.js"></script>
 
 </body>
