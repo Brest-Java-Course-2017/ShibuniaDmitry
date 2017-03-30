@@ -5,13 +5,13 @@ import java.util.Objects;
 /**
  * Data object for team model and players quantity
  */
-public class TeamDO {
+public class TeamDTO {
 
     private Integer id;
     private String name;
     private Integer playersQuantity;
 
-    public TeamDO(Integer id, String name, Integer playersQuantity) {
+    public TeamDTO(Integer id, String name, Integer playersQuantity) {
         this.id = id;
         this.name = name;
         this.playersQuantity = playersQuantity;
@@ -45,10 +45,10 @@ public class TeamDO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TeamDO teamDO = (TeamDO) o;
-        return Objects.equals(id, teamDO.id) &&
-                Objects.equals(name, teamDO.name) &&
-                Objects.equals(playersQuantity, teamDO.playersQuantity);
+        TeamDTO teamDTO = (TeamDTO) o;
+        return Objects.equals(id, teamDTO.id) &&
+                Objects.equals(name, teamDTO.name) &&
+                Objects.equals(playersQuantity, teamDTO.playersQuantity);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class TeamDO {
 
     @Override
     public String toString() {
-        return "TeamDO{" +
+        return "TeamDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", playersQuantity=" + playersQuantity +

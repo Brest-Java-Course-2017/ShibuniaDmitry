@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample javascript client</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<h1>Players</h1>
+
+
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <td><button id="btnNew">Add new player</button></td>
+
+            <td>
+                <label>Filter players by acceptance date</label>
+                <label>From:</label>
+                <input type="text" id="from">
+                <label>To:</label>
+                <input type="text" id="to">
+                <button id="btnFilter">Filter</button>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th >Name</th>
+            <th>Surname</th>
+            <th>Acceptance date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="playerList">
+        <tr>
+            <td>abc</td>
+            <td>cde</td>
+            <td>12-12-2010</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr />
+
+<button id="btnBack">Back to team list</button>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.js"></script>
+
+<script src="js/players.js"></script>
+
+</body>
+</html>

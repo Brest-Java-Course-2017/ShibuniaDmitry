@@ -1,7 +1,7 @@
 package com.dmitryshibunia.dao;
 
 import com.dmitryshibunia.model.Team;
-import com.dmitryshibunia.model.TeamDO;
+import com.dmitryshibunia.model.TeamDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,7 +48,7 @@ public class TeamDaoImpl implements TeamDao {
         namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
     @Override
-    public List<TeamDO> getAllTeams() {
+    public List<TeamDTO> getAllTeams() {
         LOGGER.debug("DAO method getAllTeams() ");
         return jdbcTemplate.query(GET_ALL_TEAMS_SQL,new TeamDORowMapper());
 
@@ -110,10 +110,10 @@ public class TeamDaoImpl implements TeamDao {
         }
     }
 
-    private class TeamDORowMapper implements RowMapper<TeamDO> {
+    private class TeamDORowMapper implements RowMapper<TeamDTO> {
         @Override
-        public TeamDO mapRow(ResultSet resultSet, int i) throws SQLException {
-            TeamDO team = new TeamDO(
+        public TeamDTO mapRow(ResultSet resultSet, int i) throws SQLException {
+            TeamDTO team = new TeamDTO(
                     resultSet.getInt("team_id"),
                     resultSet.getString("team_name"),
                     resultSet.getInt("quantity")

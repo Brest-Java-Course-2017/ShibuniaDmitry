@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit players list</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+      } );
+  </script>
+</head>
+<body>
+
+<form>
+    <table >
+        <tr>
+            <td align="right">Id</td>
+            <td><input type="text" id="id" disabled></td>
+        </tr>
+        <tr>
+            <td align="right">Name</td>
+            <td><input type="text" id="name" required></td>
+        </tr>
+        <tr>
+            <td align="right">Surname</td>
+            <td><input type="text" id="surname" required></p></td>
+        </tr>
+        <tr>
+            <td align="right">Acceptance date:</td>
+            <td><input type="text" id="datepicker" required></p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right">
+                                <button id="btnCancel" type="button" formnovalidate>Cancel</button>
+                                <button id="saveBtn">Save</button></p>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+<script src="js/playerEdit.js"></script>
+
+</body>
+</html>

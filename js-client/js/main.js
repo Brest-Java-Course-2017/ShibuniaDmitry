@@ -1,7 +1,6 @@
 var TEAMS_URL = "http://localhost:8088/teams";
 var TEAM_CHANGE_URL = "http://localhost:8088/team";
 
-
 $.dto = null;
 
 $('#btnSave').click(function () {
@@ -36,6 +35,13 @@ $('#teamList').on("click", ".small-button.edit", function () {
         }
          });
 
+});
+
+$(document).on("click", "a", function() {
+
+    var selectedTeamId = $(this).data("id");
+    var uri = 'players.html?teamId=' + selectedTeamId;
+    window.location = uri;
 });
 
 invisibleInput();

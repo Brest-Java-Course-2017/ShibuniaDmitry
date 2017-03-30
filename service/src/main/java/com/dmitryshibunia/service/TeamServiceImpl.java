@@ -3,7 +3,7 @@ package com.dmitryshibunia.service;
 import com.dmitryshibunia.dao.PlayerDao;
 import com.dmitryshibunia.dao.TeamDao;
 import com.dmitryshibunia.model.Team;
-import com.dmitryshibunia.model.TeamDO;
+import com.dmitryshibunia.model.TeamDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -35,7 +35,7 @@ public class TeamServiceImpl implements TeamService{
         this.teamDao = teamDao;
     }
     @Override
-    public List<TeamDO> getAllTeams() throws DataAccessException {
+    public List<TeamDTO> getAllTeams() throws DataAccessException {
         LOGGER.debug("Service method getAllTeams() ");
         return teamDao.getAllTeams();
     }

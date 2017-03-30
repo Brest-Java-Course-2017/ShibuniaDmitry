@@ -1,7 +1,7 @@
 package com.dmitryshibunia.rest;
 
 import com.dmitryshibunia.model.Team;
-import com.dmitryshibunia.model.TeamDO;
+import com.dmitryshibunia.model.TeamDTO;
 import com.dmitryshibunia.service.TeamService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +27,7 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
-    public @ResponseBody List<TeamDO> getAllTeams() {
+    public @ResponseBody List<TeamDTO> getAllTeams() {
         LOGGER.debug("getAllTeams()");
         return teamService.getAllTeams();
     }
