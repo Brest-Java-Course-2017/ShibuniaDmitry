@@ -1,5 +1,6 @@
 package com.dmitryshibunia.rest;
 
+import com.dmitryshibunia.model.TeamDTO;
 import com.dmitryshibunia.model.Team;
 import com.dmitryshibunia.service.TeamService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,7 +54,7 @@ public class TeamControllerMockTest {
 
     @Test
     public void getAllTeams() throws Exception {
-        expect(teamService.getAllTeams()).andReturn(Arrays.<Team>asList(new Team("Team1")));
+        expect(teamService.getAllTeams()).andReturn(Arrays.<TeamDTO>asList(new TeamDTO(1,"Team1", 2)));
         replay(teamService);
         mockMvc.perform(
                 get("/teams")

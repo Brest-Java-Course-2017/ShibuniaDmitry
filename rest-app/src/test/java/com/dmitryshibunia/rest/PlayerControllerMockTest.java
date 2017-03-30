@@ -1,12 +1,10 @@
 package com.dmitryshibunia.rest;
 
 import com.dmitryshibunia.model.Player;
-import com.dmitryshibunia.model.Team;
 import com.dmitryshibunia.service.PlayerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,9 +52,8 @@ public class PlayerControllerMockTest {
         reset(playerService);
     }
 
-
     @Test
-    public void getAllTeams() throws Exception {
+    public void getAllPlayersInTeam() throws Exception {
         expect(playerService.getAllPlayersInTeam(1)).andReturn(Arrays.<Player>asList(
                 new Player(1, "Jack", "Richer", LocalDate.parse("2010-01-01"))));
         replay(playerService);

@@ -61,12 +61,4 @@ public class PlayerController {
         playerService.deletePlayer(id);
     }
 
-    @RequestMapping(value = "team/{teamId}/count", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody Integer countPlayersInTeam(@PathVariable(value = "teamId") Integer id){
-        LOGGER.debug("countPlayersInTeam() teamId = " + id);
-        return playerService.countPlayersInTeam(id);
-    }
-
-
 }
