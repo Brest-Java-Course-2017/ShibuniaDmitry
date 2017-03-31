@@ -4,7 +4,7 @@ import com.dmitryshibunia.dao.PlayerDao;
 import com.dmitryshibunia.model.Player;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
+import org.springframework.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
@@ -41,11 +41,11 @@ public class PlayerServiceImpl implements PlayerService{
 
     @Override
     public Integer addPlayer(Player player) throws DataAccessException {
-        Assert.assertNull(player.getId());
-        Assert.assertNotNull(player.getTeamId());
-        Assert.assertNotNull(player.getName());
-        Assert.assertNotNull(player.getSurname());
-        Assert.assertNotNull(player.getAcceptanceDate());
+        Assert.isNull(player.getId());
+        Assert.notNull(player.getTeamId());
+        Assert.notNull(player.getName());
+        Assert.notNull(player.getSurname());
+        Assert.notNull(player.getAcceptanceDate());
         LOGGER.debug("Service method addPlayer() player = " + player);
 
         try {
@@ -60,11 +60,11 @@ public class PlayerServiceImpl implements PlayerService{
 
     @Override
     public void updatePlayer(Player player) throws DataAccessException {
-        Assert.assertNotNull(player.getId());
-        Assert.assertNotNull(player.getTeamId());
-        Assert.assertNotNull(player.getName());
-        Assert.assertNotNull(player.getSurname());
-        Assert.assertNotNull(player.getAcceptanceDate());
+        Assert.notNull(player.getId());
+        Assert.notNull(player.getTeamId());
+        Assert.notNull(player.getName());
+        Assert.notNull(player.getSurname());
+        Assert.notNull(player.getAcceptanceDate());
 
         LOGGER.debug("Service method updatePlayer() player = " + player);
         playerDao.updatePlayer(player);

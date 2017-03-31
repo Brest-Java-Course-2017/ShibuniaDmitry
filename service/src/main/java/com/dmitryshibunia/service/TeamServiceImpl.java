@@ -6,7 +6,7 @@ import com.dmitryshibunia.model.Team;
 import com.dmitryshibunia.model.TeamDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
+import org.springframework.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
@@ -42,22 +42,23 @@ public class TeamServiceImpl implements TeamService{
 
     @Override
     public Team getTeamById(Integer id) throws DataAccessException{
-        Assert.assertNotNull(id);
+        Assert.notNull(id);
         LOGGER.debug("Service method getTeamById() id = " + id);
         return teamDao.getTeamById(id);
     }
 
     @Override
     public Team getTeamByName(String name) throws DataAccessException{
-        Assert.assertNotNull(name);
+        Assert.notNull(name);
         LOGGER.debug("Service method getTeamByName() name = " + name);
         return teamDao.getTeamByName(name);
     }
 
     @Override
     public Integer addTeam(Team team) throws DataAccessException{
-        Assert.assertNotNull(team.getName());
-        Assert.assertNull(team.getId());
+        Assert.notNull(team.getName());
+        Assert.hasText(team.getName());
+        Assert.isNull(team.getId());
         LOGGER.debug("Service method addTeam() team = " + team);
 
         try {
@@ -73,8 +74,9 @@ public class TeamServiceImpl implements TeamService{
 
     @Override
     public void updateTeam(Team team) throws DataAccessException{
-        Assert.assertNotNull(team.getName());
-        Assert.assertNotNull(team.getId());
+        Assert.notNull(team.getName());
+        Assert.hasText(team.getName());
+        Assert.notNull(team.getId());
         LOGGER.debug("Service method updateTeam() team = " + team);
         teamDao.updateTeam(team);
     }
